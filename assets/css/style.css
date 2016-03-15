@@ -1,0 +1,287 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  user-select: none;
+  padding:0;
+  margin: 0;
+}
+
+i,
+em {
+  font-style: italic;
+}
+
+b,
+strong {
+  font-weight: 600;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 3px solid #fff;
+}
+
+
+
+/** @define Site */
+
+.Site {
+  background: #0F1D20;
+  font-family: 'Old Standard TT', serif;
+  font-weight: 400;
+  font-size: 100%;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.Site,
+.Site-body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+
+.Site-body {
+  position: relative;
+}
+
+
+
+/** @define Game */
+
+.Game {
+  position: fixed;
+  backface-visibility: hidden;
+  perspective: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  margin: auto;
+  display: block;
+  width: 90%;
+  height: 90%;
+  opacity: 0;
+  transition: opacity 1000ms ease;
+  max-width: 1200px;
+  max-height: 1200px;
+}
+
+html.is-loaded .Game {
+  opacity: .8;
+}
+
+.Game.is-active {
+  opacity: 1 !important;
+}
+
+.Game-demo,
+.Game-tracer {
+  opacity: 1;
+  transition: opacity 1000ms;
+}
+
+.Game-connector,
+.Game-finger {
+  transition: fill 1000ms;
+}
+
+.Game-finger {
+  pointer-events: none;
+}
+
+.Game.is-active .Game-finger {
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+
+.Game.is-active .Game-demo {
+  opacity: 0;
+}
+
+
+
+/** @define Modal */
+
+.Modal {
+  position: fixed;
+  backface-visibility: hidden;
+  perspective: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  background: #0F1D20;
+  background: rgba(0,0,0,.6);
+  opacity: 0;
+  transition: opacity 500ms;
+  text-align: center;
+  pointer-events: none;
+}
+
+.Modal-content {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  backface-visibility: hidden;
+  perspective: 1000;
+  padding: 40px;
+  font-size: 30px;
+
+  max-width: 1200px;
+  margin: 0 auto;
+
+  transition: transform 500ms;
+  will-change: transform;
+}
+
+@media (min-width:800px) {
+  .Modal-content {
+    font-size: 40px;
+  }
+}
+
+.Modal.is-active {
+  opacity: 1;
+}
+
+
+
+/** @define Score */
+
+.Score {
+  position: fixed;
+  backface-visibility: hidden;
+  perspective: 1000;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  line-height: 1;
+  z-index: 40;
+
+  opacity: 0;
+  transform: translate3d(0, 100%, 0);
+
+  transition: transform 1500ms ease, opacity 500ms ease;
+}
+
+.Score.is-active {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
+
+
+/** @define Intro */
+
+.Intro {
+  position: fixed;
+  backface-visibility: hidden;
+  perspective: 1000;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: #000;
+}
+
+.Intro-text {
+  font-size: 150px;
+}
+
+.Intro-textCopy {
+  fill: none;
+  stroke: white;
+  stroke-dasharray: 7% 28%;
+  stroke-width: 2px;
+
+  animation: stroke-offset 9000ms 1 ease;
+  animation-fill-mode: forwards;
+}
+
+.Intro-textCopy:nth-child(1) {
+  stroke: #fff;
+  stroke-dashoffset: 7%;
+}
+
+.Intro-textCopy:nth-child(2) {
+  stroke: #fff;
+  stroke-dashoffset: 14%;
+}
+
+.Intro-textCopy:nth-child(3) {
+  stroke: #fff;
+  stroke-dashoffset: 21%;
+}
+
+.Intro-textCopy:nth-child(4) {
+  stroke: #fff;
+  stroke-dashoffset: 28%;
+}
+
+.Intro-textCopy:nth-child(5) {
+  stroke: #fff;
+  stroke-dashoffset: 35%;
+}
+
+
+/** @define utilities */
+
+.u-animRotate {
+  animation: rotate 2000ms ease;
+}
+.u-animScale {
+  animation: scale 2000ms ease;
+}
+
+
+
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: scale(0.1) rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes stroke-offset {
+  0% {
+    stroke-dasharray: 0 85%;
+  }
+  48%, 52% {
+    stroke-dasharray: 7% 28%;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dasharray: 0 87.5%;
+    opacity: 0;
+  }
+}

@@ -1,0 +1,16 @@
+# Environment
+.DS_Store
+
+# Project files
+node_modules
+jspm_packages
+robots.txt
+sitemap.xml
+
+# Minified files
+*.gz
+*.map
+*min.*
+*.log
+lint
+min

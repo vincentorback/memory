@@ -1,0 +1,69 @@
+<!doctype html>
+<html class="Site no-js" lang="en">
+
+  <head prefix="og: http://ogp.me/ns#">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Memory</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Old+Standard+TT:400,400italic">
+    <link rel="stylesheet" href="assets/min/style-min.css">
+
+    <meta name="theme-color" content="#0F1D20">
+    <link rel="canonical" href="http://memory.vincentorback.se">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Memory">
+    <meta property="og:description" content="A small game that tests your memory and memory loss">
+    <meta property="og:url" content="http://memory.vincentorback.se">
+    <meta property="og:site_name" content="Memory">
+    <meta property="og:image" content="http://memory.vincentorback.se/share.png">
+  </head>
+
+  <body class="Site-body">
+    <svg id="game" class="Game" viewBox="0 0 600 600">
+      <path class="Game-tracer" id="tracer" stroke="#FFFFFF" stroke-width="10" fill="none"></path>
+      <path class="Game-demo" id="demo" stroke="#EFD176" stroke-width="10" fill="none"></path>
+      <circle class="Game-connector js-connector" cx="300" cy="50" r="50" fill="#EFD176"></circle>
+      <circle class="Game-connector js-connector" cx="517" cy="175" r="50" fill="#EFD176"></circle>
+      <circle class="Game-connector js-connector" cx="517" cy="425" r="50" fill="#EFD176"></circle>
+      <circle class="Game-connector js-connector" cx="300" cy="550" r="50" fill="#EFD176"></circle>
+      <circle class="Game-connector js-connector" cx="83" cy="425" r="50" fill="#EFD176"></circle>
+      <circle class="Game-connector js-connector" cx="83" cy="175" r="50" fill="#EFD176"></circle>
+      <circle class="Game-connector js-connector" cx="300" cy="300" r="50" fill="#EFD176"></circle>
+      <circle class="Game-finger" id="finger" cx="300" cy="300" r="50" fill="#EFD176"></circle>
+    </svg>
+
+    <svg class="Intro" viewBox="0 0 800 600">
+      <symbol class="Intro-text" id="memory-text">
+        <text text-anchor="middle" x="50%" y="50%">Memory</text>
+      </symbol>
+      <g>
+        <use xlink:href="#memory-text" class="Intro-textCopy"></use>
+        <use xlink:href="#memory-text" class="Intro-textCopy"></use>
+        <use xlink:href="#memory-text" class="Intro-textCopy"></use>
+        <use xlink:href="#memory-text" class="Intro-textCopy"></use>
+      </g>
+    </svg>
+
+    <div id="modal" class="Modal">
+      <div class="Modal-content">
+        <p id="modal-text"></p>
+      </div>
+    </div>
+
+    <div class="Score" id="streak">0</div>
+
+    <script src="/assets/min/main-min.js" async></script>
+
+    <noscript>
+      <div id="modal" class="Modal">
+        <div class="Modal-content">
+          <p>Sorry this game is run by javascript and it seems that it’s disabled in your browser...</p>
+        </div>
+      </div>
+    </noscript>
+
+  </body>
+</html>
