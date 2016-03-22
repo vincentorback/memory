@@ -3,4 +3,4 @@
 
 ## Setup
 Install dependencies: `npm install`  
-Build and serve at localhost:3000: `npm run start`
+Build and serve at localhost:3000: `npm start`
