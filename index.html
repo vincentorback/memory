@@ -22,7 +22,7 @@
   </head>
 
   <body class="Site-body">
-    <svg id="game" class="Game" viewBox="0 0 600 600">
+    <svg class="Game" id="game" viewBox="0 0 600 600">
       <path class="Game-tracer" id="tracer" stroke="#FFFFFF" stroke-width="10" fill="none"></path>
       <path class="Game-demo" id="demo" stroke="#EFD176" stroke-width="10" fill="none"></path>
       <circle class="Game-connector js-connector" cx="300" cy="50" r="50" fill="#EFD176"></circle>
@@ -39,26 +39,24 @@
       <symbol class="Intro-text" id="memory-text">
         <text text-anchor="middle" x="50%" y="50%">Memory</text>
       </symbol>
-      <g>
-        <use xlink:href="#memory-text" class="Intro-textCopy"></use>
-        <use xlink:href="#memory-text" class="Intro-textCopy"></use>
-        <use xlink:href="#memory-text" class="Intro-textCopy"></use>
-        <use xlink:href="#memory-text" class="Intro-textCopy"></use>
-      </g>
+      <use xlink:href="#memory-text" class="Intro-textCopy"></use>
+      <use xlink:href="#memory-text" class="Intro-textCopy"></use>
+      <use xlink:href="#memory-text" class="Intro-textCopy"></use>
+      <use xlink:href="#memory-text" class="Intro-textCopy"></use>
     </svg>
 
-    <div id="modal" class="Modal">
+    <div class="Modal" id="modal">
       <div class="Modal-content">
         <p id="modal-text"></p>
       </div>
     </div>
 
-    <div class="Score" id="streak">0</div>
+    <div class="Score" id="streak"></div>
 
     <script src="/assets/min/main-min.js" async></script>
 
     <noscript>
-      <div id="modal" class="Modal">
+      <div class="Modal" id="modal">
         <div class="Modal-content">
           <p>Sorry this game is run by javascript and it seems that it’s disabled in your browser...</p>
         </div>

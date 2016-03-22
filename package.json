@@ -25,7 +25,7 @@
     "js_files": "assets/javascript/vendor/modernizr-custom.js assets/javascript/vendor/interact.js assets/javascript/main.js",
     "js_lint_ignore": "assets/javascript/vendor/**/*"
   },
-  "dependencies": {
+  "devDependencies": {
     "autoprefixer": "^6.0.3",
     "csswring": "^4.2.1",
     "eslint": "^2.4.0",
