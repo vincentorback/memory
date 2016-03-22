@@ -82,7 +82,7 @@
   function modal(text, timeout, action, args) {
     if (debug === true) {
       if (modalElement.classList.contains(activeClass)) {
-        console.log('I was active..... This should not happen...');
+        window.console.log('I was active..... This should not happen...');
       }
       action(args);
       return;
@@ -293,13 +293,6 @@
   }
 
 
-
-  // Here we go!
-  if (streak > 10) {
-    doc.querySelector('#memory-text text').innerHTML = 'Memory...';
-  }
-
-
   window.setTimeout(function () {
     if (streak > 0) {
       modal('Welcome back!<br>Your current <i>memory streak</i> is ' + streak + '.<br>Keep going!', 6000, createDemoPath);
@@ -327,6 +320,5 @@
       setScore(0);
     }
   });
-
 
 }(this));

@@ -13,7 +13,7 @@
     "start": "parallelshell 'npm run watch' 'npm run serve'",
     "build:js": "uglifyjs $npm_package_config_js_files -o assets/min/main-min.js --screw-ie8 --comments",
     "build:css": "postcss -u postcss-css-variables -u postcss-custom-media -u autoprefixer autoprefixer.browsers 'last 3 versions' autoprefixer.cascade false -u postcss-reporter --postcss-reporter.clearMessages true -u csswring --sourcemap -o assets/min/style-min.css assets/css/style.css",
-    "lint:js": "eslint --quiet --ignore-pattern assets/javascript/vendor/**/* assets/javascript/**/*.js",
+    "lint:js": "eslint --quiet --ignore-pattern $npm_package_config_js_lint_ignore assets/javascript/**/*.js",
     "lint:css": "postcss -u stylelint -q -u postcss-bem-linter --postcss-bem-linter.preset 'suit' --postcss-bem-linter.ignoreSelectors html. -u postcss-reporter --postcss-reporter.clearMessages true --dir assets/min/lint assets/css/**/*.css",
     "watch:js": "watch 'npm run lint:js && npm run build:js' assets/javascript --wait 5",
     "watch:css": "watch 'npm run lint:css && npm run build:css' assets/css --wait 5",
@@ -22,7 +22,8 @@
   },
   "config": {
     "port": "3000",
-    "js_files": "assets/javascript/vendor/modernizr-custom.js assets/javascript/vendor/interact.js assets/javascript/main.js"
+    "js_files": "assets/javascript/vendor/modernizr-custom.js assets/javascript/vendor/interact.js assets/javascript/main.js",
+    "js_lint_ignore": "assets/javascript/vendor/**/*"
   },
   "dependencies": {
     "autoprefixer": "^6.0.3",
@@ -37,7 +38,7 @@
     "postcss-css-variables": "^0.5.1",
     "postcss-reporter": "^1.3.0",
     "stylelint": "^5.0.1",
-    "stylelint-config-suitcss": "^4.0.0",
+    "stylelint-config-suitcss": "^5.0.0",
     "uglify-js": "^2.6.2",
     "watch": "^0.17.1"
   }

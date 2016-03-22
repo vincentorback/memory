@@ -1,3 +1,8 @@
+:root {
+  --color-darkblue: #0f1d20;
+  --font-serif: "Old Standard TT", serif;
+}
+
 html {
   box-sizing: border-box;
 }
@@ -7,7 +12,7 @@ html {
 *:after {
   box-sizing: inherit;
   user-select: none;
-  padding:0;
+  padding: 0;
   margin: 0;
 }
 
@@ -28,12 +33,11 @@ a {
 }
 
 
-
 /** @define Site */
 
 .Site {
-  background: #0F1D20;
-  font-family: 'Old Standard TT', serif;
+  background: var(--color-darkblue);
+  font-family: var(--font-serif);
   font-weight: 400;
   font-size: 100%;
   line-height: 1.5;
@@ -47,11 +51,9 @@ a {
   overflow: hidden;
 }
 
-
 .Site-body {
   position: relative;
 }
-
 
 
 /** @define Game */
@@ -109,7 +111,6 @@ html.is-loaded .Game {
 }
 
 
-
 /** @define Modal */
 
 .Modal {
@@ -121,8 +122,8 @@ html.is-loaded .Game {
   right: 0;
   bottom: 0;
   z-index: 30;
-  background: #0F1D20;
-  background: rgba(0,0,0,.6);
+  background: var(--color-darkblue);
+  background: rgba(0, 0, 0, .6);
   opacity: 0;
   transition: opacity 500ms;
   text-align: center;
@@ -147,7 +148,7 @@ html.is-loaded .Game {
   will-change: transform;
 }
 
-@media (min-width:800px) {
+@media (min-width: 800px) {
   .Modal-content {
     font-size: 40px;
   }
@@ -156,7 +157,6 @@ html.is-loaded .Game {
 .Modal.is-active {
   opacity: 1;
 }
-
 
 
 /** @define Score */
@@ -181,7 +181,6 @@ html.is-loaded .Game {
   transform: translate3d(0, 0, 0);
   opacity: 1;
 }
-
 
 
 /** @define Intro */
@@ -241,13 +240,10 @@ html.is-loaded .Game {
 .u-animRotate {
   animation: rotate 2000ms ease;
 }
+
 .u-animScale {
   animation: scale 2000ms ease;
 }
-
-
-
-
 
 @keyframes rotate {
   0% {
@@ -263,7 +259,7 @@ html.is-loaded .Game {
     transform: rotate(0deg);
   }
   50% {
-    transform: scale(0.1) rotate(180deg);
+    transform: scale(.1) rotate(180deg);
   }
   100% {
     transform: rotate(360deg);
@@ -274,7 +270,8 @@ html.is-loaded .Game {
   0% {
     stroke-dasharray: 0 85%;
   }
-  48%, 52% {
+  48%,
+  52% {
     stroke-dasharray: 7% 28%;
   }
   90% {
