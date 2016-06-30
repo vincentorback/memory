@@ -4,9 +4,6 @@
   'use strict';
 
 
-  var debug = false; //(document.location.hostname === 'localhost');
-
-
   if (!Modernizr.svg) {
     window.alert('OMG NOOOOO! Your browser is to old (or maybe just unique) and wont support this game... :/');
     return;
@@ -80,14 +77,6 @@
 
 
   function modal(text, timeout, action, args) {
-    if (debug === true) {
-      if (modalElement.classList.contains(activeClass)) {
-        window.console.log('I was active..... This should not happen...');
-      }
-      action(args);
-      return;
-    }
-
     if (text) {
       modalElement.classList.add(activeClass);
       modalText.innerHTML = text;
@@ -293,7 +282,7 @@
   }
 
 
-  window.setTimeout(function () {
+  function init() {
     if (streak > 0) {
       modal('Welcome back!<br>Your current <i>memory streak</i> is ' + streak + '.<br>Keep going!', 6000, createDemoPath);
       scoreEl.classList.add(activeClass);
@@ -302,10 +291,7 @@
       modal('Watch and <i>remember</i> the path...', 6000, createDemoPath);
     }
     html.classList.add('is-loaded');
-    if (debug) {
-      document.getElementsByClassName('Intro')[0].style.opacity = '0';
-    }
-  }, (debug ? 0 : 9000));
+  }
 
 
   window.addEventListener('resize', function() {
@@ -320,5 +306,11 @@
       setScore(0);
     }
   });
+
+
+  window.setTimeout(function () {
+    window.requestAnimationFrame(init);
+  }, 9000);
+
 
 }(this));
