@@ -56,7 +56,7 @@
 
 
   function setScore(score) {
-    score = score || 0;
+    score = (score > 0) ? score : 0;
 
     if (score === 0) {
       streak = 0;
@@ -64,7 +64,7 @@
 
     streak += parseFloat(score);
 
-    if (streak > parseFloat(scoreEl.innerHTML)) {
+    if (streak !== parseFloat(scoreEl.innerHTML)) {
       scoreEl.innerHTML = streak;
     }
 
@@ -258,6 +258,7 @@
       } else {
         modal('<i>Incorrect...</i>', 6000, createDemoPath);
       }
+
       setScore(0);
     }
   }
