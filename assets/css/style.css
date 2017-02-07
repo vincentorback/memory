@@ -1,5 +1,5 @@
 :root {
-  --color-darkblue: #0f1d20;
+  --color-darkblue: #010616;
   --color-yellow: #efd176;
   --font-serif: "Old Standard TT", serif;
 }
@@ -9,8 +9,8 @@ html {
 }
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: inherit;
   user-select: none;
   padding: 0;
@@ -61,25 +61,28 @@ a {
 
 .Game {
   position: fixed;
-  backface-visibility: hidden;
-  perspective: 1000;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 20;
+
   margin: auto;
   display: block;
-  width: 90%;
-  height: 90%;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 40px;
+
+  backface-visibility: hidden;
+  perspective: 1000;
   opacity: 0;
   transition: opacity 1000ms ease;
-  max-width: 1200px;
-  max-height: 1200px;
 }
 
 html.is-loaded .Game {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .Game.is-active {
@@ -124,9 +127,9 @@ html.is-loaded .Game {
   bottom: 0;
   z-index: 30;
   background: var(--color-darkblue);
-  background: rgba(0, 0, 0, .6);
+  background: rgba(0, 0, 0, 0.4);
   opacity: 0;
-  transition: opacity 500ms;
+  transition: opacity 500ms ease;
   text-align: center;
   pointer-events: none;
 }
@@ -145,7 +148,7 @@ html.is-loaded .Game {
   max-width: 1200px;
   margin: 0 auto;
 
-  transition: transform 500ms;
+  transition: transform 500ms ease;
   will-change: transform;
 }
 
@@ -193,7 +196,7 @@ html.is-loaded .Game {
   width: 100%;
   height: 100%;
   z-index: 1;
-  background: #000;
+  background: var(--color-darkblue);
 }
 
 .Intro-text {
@@ -250,6 +253,7 @@ html.is-loaded .Game {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -259,9 +263,11 @@ html.is-loaded .Game {
   0% {
     transform: rotate(0deg);
   }
+
   50% {
-    transform: scale(.1) rotate(180deg);
+    transform: scale(0.1) rotate(180deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -271,13 +277,16 @@ html.is-loaded .Game {
   0% {
     stroke-dasharray: 0 85%;
   }
+
   48%,
   52% {
     stroke-dasharray: 7% 28%;
   }
+
   90% {
     opacity: 1;
   }
+
   100% {
     stroke-dasharray: 0 87.5%;
     opacity: 0;

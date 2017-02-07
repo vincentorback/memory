@@ -16,9 +16,9 @@
   "scripts": {
     "start": "parallelshell 'npm run watch' 'npm run serve'",
     "build:js": "uglifyjs $npm_package_config_js_files -o assets/min/main-min.js --screw-ie8 --comments",
-    "build:css": "postcss -u postcss-css-variables -u postcss-custom-media -u autoprefixer autoprefixer.browsers 'last 3 versions' autoprefixer.cascade false -u postcss-reporter --postcss-reporter.clearMessages true -u csswring --sourcemap -o assets/min/style-min.css assets/css/style.css",
-    "lint:js": "eslint --quiet --ignore-pattern $npm_package_config_js_lint_ignore assets/javascript/**/*.js",
-    "lint:css": "postcss -u stylelint -q -u postcss-bem-linter --postcss-bem-linter.preset 'suit' --postcss-bem-linter.ignoreSelectors html. -u postcss-reporter --postcss-reporter.clearMessages true --dir assets/min/lint assets/css/**/*.css",
+    "build:css": "postcss -u postcss-cssnext -u csswring -o assets/min/style-min.css assets/css/style.css",
+    "lint:js": "standard 'assets/javascript/**/*.js'",
+    "lint:css": "postcss -u stylelint -u postcss-reporter postcss-reporter.clearReportedMessages true --dir assets/min/lint assets/css/**/*.css",
     "watch:js": "watch 'npm run lint:js && npm run build:js' assets/javascript --wait 5",
     "watch:css": "watch 'npm run lint:css && npm run build:css' assets/css --wait 5",
     "watch": "parallelshell 'npm run watch:js' 'npm run watch:css'",
@@ -26,24 +26,34 @@
   },
   "config": {
     "port": "3000",
-    "js_files": "assets/javascript/vendor/modernizr-custom.js assets/javascript/vendor/interact.js assets/javascript/main.js",
-    "js_lint_ignore": "assets/javascript/vendor/**/*"
+    "js_files": "assets/javascript/vendor/modernizr-custom.js assets/javascript/vendor/interact.js assets/javascript/main.js"
   },
   "devDependencies": {
-    "autoprefixer": "^6.5.4",
-    "csswring": "^5.1.0",
-    "eslint": "^3.12.1",
+    "autoprefixer": "^6.7.2",
+    "csswring": "^5.1.1",
     "local-web-server": "^1.2.6",
     "parallelshell": "^2.0.0",
-    "postcss": "^5.2.6",
+    "postcss": "^5.2.11",
     "postcss-bem-linter": "^2.6.0",
     "postcss-cli": "^2.6.0",
-    "postcss-css-variables": "^0.6.0",
-    "postcss-custom-media": "^5.0.1",
-    "postcss-reporter": "^3.0.0",
-    "stylelint": "^7.6.0",
-    "stylelint-config-suitcss": "^8.0.0",
+    "postcss-cssnext": "^2.9.0",
+    "standard": "^8.6.0",
+    "stylelint": "^7.8.0",
+    "stylelint-config-standard": "^16.0.0",
     "uglify-js": "^2.7.5",
     "watch": "^1.0.1"
+  },
+  "standard": {
+    "ignore": [
+      "assets/javascript/vendor/",
+      "*-min.js"
+    ]
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard",
+    "rules": {
+      "max-empty-lines": 2,
+      "declaration-empty-line-before": null
+    }
   }
 }
