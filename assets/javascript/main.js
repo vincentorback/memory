@@ -18,14 +18,14 @@
 
   var doc = window.document
   var html = doc.documentElement
-  var game = doc.getElementById('game')
-  var demo = game.getElementById('demo')
-  var finger = game.getElementById('finger')
+  var game = doc.querySelector('#game')
+  var demo = game.querySelector('#demo')
+  var finger = game.querySelector('#finger')
   var connectors = game.querySelectorAll('.js-connector')
-  var tracer = game.getElementById('tracer')
-  var scoreEl = doc.getElementById('streak')
-  var modalElement = doc.getElementById('modal')
-  var modalText = doc.getElementById('modal-text')
+  var tracer = game.querySelector('#tracer')
+  var scoreEl = doc.querySelector('#streak')
+  var modalElement = doc.querySelector('#modal')
+  var modalText = modalElement.querySelector('#modal-text')
   var streak = parseFloat(getSavedScore()) || 0
   var strokeSpeed = 10
   var disabled = true
@@ -254,8 +254,10 @@
         game.classList.add(rotateClass)
       }
     } else {
-      if (streak > 10) {
-        modal('<i>Incorrect...</i><br>But a streak of ' + streak + ' is still pretty good!', 12000, createDemoPath)
+      if (streak > 30) {
+        modal('<i>Incorrect...</i><br>But ' + streak + ' is so close to the finish line!!! AGAIN!!', 18000, createDemoPath)
+      } else if (streak > 10) {
+        modal('<i>Incorrect...</i><br>But a streak of ' + streak + ' is still pretty good!', 18000, createDemoPath)
       } else {
         modal('<i>Incorrect...</i>', 6000, createDemoPath)
       }
@@ -298,13 +300,6 @@
     gameSize = game.getBoundingClientRect()
     gameScale = (gameSize.width > originalSize) ? (originalSize / gameSize.height) : (originalSize / gameSize.width)
   }, false)
-
-  // CMD + Z to restore score
-  window.addEventListener('keydown', function (e) {
-    if (e.metaKey && e.keyCode === 90) {
-      setScore(0)
-    }
-  })
 
   window.setTimeout(function () {
     window.requestAnimationFrame(init)
