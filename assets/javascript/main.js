@@ -211,8 +211,9 @@
       if (streak > 40) {
         modal('You win...<br>I’m sorry, no more games...<br><a href="https://unicef.se/ge-pengar">Go do... something!</a>')
         modalElement.style.cssText = 'z-index:100;pointer-events:auto'
-      } else if (streak > 25) {
+      } else if (streak > 31) {
         modal(streak + ' <i>memory</i> streak!', 6000, createDemoPath)
+        game.classList.add(rotateClass)
       } else if (streak > 30) {
         modal('Whatheee?', 6000, createDemoPath)
       } else if (streak > 25) {
@@ -259,7 +260,7 @@
       } else if (streak > 10) {
         modal('<i>Incorrect...</i><br>But a streak of ' + streak + ' is still pretty good!', 18000, createDemoPath)
       } else {
-        modal('<i>Incorrect...</i>', 6000, createDemoPath)
+        modal('<i>Incorrect...</i>', 12000, createDemoPath)
       }
 
       setScore(0)
