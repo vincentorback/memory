@@ -279,7 +279,7 @@ html.is-loaded .Game {
   }
 }
 
-@keyframes stroke-offset {
+/* @keyframes stroke-offset {
   0% {
     stroke-dasharray: 0 85%;
   }
@@ -295,6 +295,27 @@ html.is-loaded .Game {
 
   100% {
     stroke-dasharray: 0 87.5%;
+    opacity: 0;
+  }
+} */
+
+
+@keyframes stroke-offset {
+  0% {
+    stroke-dasharray: 0 850;
+  }
+
+  48%,
+  52% {
+    stroke-dasharray: 70 280;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    stroke-dasharray: 0 875;
     opacity: 0;
   }
 }
