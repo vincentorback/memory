@@ -8,15 +8,12 @@ html {
   box-sizing: border-box;
 }
 
-*,
-*::before,
-*::after {
+* {
   box-sizing: inherit;
   user-select: none;
   padding: 0;
   margin: 0;
 }
-
 i,
 em {
   font-style: italic;
@@ -34,7 +31,8 @@ a {
 }
 
 
-/** @define Site */
+
+/* Site */
 
 .Site {
   background: var(--color-darkblue);
@@ -57,7 +55,8 @@ a {
 }
 
 
-/** @define Game */
+
+/* Game */
 
 .Game {
   position: fixed;
@@ -115,7 +114,8 @@ html.is-loaded .Game {
 }
 
 
-/** @define Modal */
+
+/* Modal */
 
 .Modal {
   position: fixed;
@@ -187,7 +187,8 @@ html.is-loaded .Game {
 }
 
 
-/** @define Intro */
+
+/* Intro */
 
 .Intro {
   position: fixed;
@@ -239,7 +240,8 @@ html.is-loaded .Game {
 }
 
 
-/** @define utilities */
+
+/* Utilities */
 
 .u-animRotate {
   animation: rotate 2000ms ease;
@@ -248,6 +250,10 @@ html.is-loaded .Game {
 .u-animScale {
   animation: scale 2000ms ease;
 }
+
+
+
+/* Animations */
 
 @keyframes rotate {
   0% {

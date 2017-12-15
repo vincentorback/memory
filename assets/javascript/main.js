@@ -182,12 +182,14 @@
     nodesToArray(connectors).forEach(function (connector) {
       cX = parseFloat(connector.getAttribute('cx'))
       cY = parseFloat(connector.getAttribute('cy'))
+
       if ((cX - 50) <= fingerX && fingerX <= (cX + 50) && (cY - 50) <= fingerY && fingerY <= (cY + 50)) {
         if (pathCoords.indexOf(cX + ',' + cY) < 0) {
           pathCoords += (' L ' + cX + ',' + cY)
           lastCoords.x = cX
           lastCoords.y = cY
         }
+
         connector.setAttribute('fill', colors.activeCircle)
       }
     })
